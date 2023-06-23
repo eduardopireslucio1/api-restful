@@ -19,7 +19,7 @@ class ClientFactory extends Factory
         return [
             'name' => fake()->name(),
             'phone' => "44998163466",
-            'address' => fake()->unique()->safeEmail(),
+            'address' => fake()->address(),
             'email' => fake()->unique()->safeEmail(),
         ];
     }
