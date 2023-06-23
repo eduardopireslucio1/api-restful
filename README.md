@@ -1,3 +1,4 @@
+Pre requisito: Docker
 Para utilizar a api, deve-se seguir os seguintes passos:
 Passo 1: Clonar o repositorio com git clone https://github.com/eduardopireslucio1/api-restful
 
@@ -22,6 +23,10 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 
 -Passo 6: Rodar o comando para subir os containers (./vendor/bin/sail up)
+
+-Passo 7: Gerar App key (./vendor/bin/sail php artisan key:generate) ou acessar localhost e gerar pela interface
+
+-Passo 8: Gerar chave JWT (./vendor/bin/sail php artisan key:generate)
 
 -Pronto agora está tudo certo para utilizar a API-LiberFly
 -Lembrando que para utilizar os endpoints, terá que adicionar os Headers Acceppt(application/json) e Content-Type(application/json).
