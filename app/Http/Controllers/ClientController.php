@@ -8,6 +8,14 @@ use App\Http\Requests\ClientStoreRequest;
 use App\Http\Resources\ClientResource;
 use App\Http\Requests\ClientUpdateRequest;
 use App\Policies\ClientPolicy;
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Info(
+ *     title="API Liberfly",
+ *     version="1.0"
+ * )
+ */
 
 class ClientController extends Controller
 {
@@ -16,6 +24,29 @@ class ClientController extends Controller
         $this->middleware('auth:api'); // Middleware para exigir autenticação nas rotas da API
     }
 
+    /**
+     * @OA\Get(
+     *      path="/liberfly/clients",
+     *      operationId="getClientList",
+     *      tags={"Clients"},
+     *      summary="Get list of clients",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="array",
+     *              @OA\Items(
+     *                  @OA\Property(property="id", type="integer"),
+     *                  @OA\Property(property="name", type="string"),
+     *                  @OA\Property(property="phone", type="string"),
+     *                  @OA\Property(property="address", type="string"),
+     *                  @OA\Property(property="email", type="string"),
+     *                  @OA\Property(property="created_at", type="string")
+     *              )
+     *          )
+     *      )
+     * )
+     */
     public function index()
     {
         return ClientResource::collection(auth()->user()->clients);
