@@ -30,6 +30,7 @@ class ClientController extends Controller
      *      operationId="getClientList",
      *      tags={"Clients"},
      *      summary="Get list of clients",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -59,6 +60,7 @@ class ClientController extends Controller
      *      operationId="getClient",
      *      tags={"Clients"},
      *      summary="Get information from a specific client",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -91,6 +93,7 @@ class ClientController extends Controller
      *      operationId="createClient",
      *      tags={"Clients"},
      *      summary="Create a new Client",
+     *      security={{"bearerAuth":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(
@@ -133,6 +136,7 @@ class ClientController extends Controller
      *      operationId="updateClient",
      *      tags={"Clients"},
      *      summary="Update a specific client",
+     *      security={{"bearerAuth":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(
@@ -176,6 +180,7 @@ class ClientController extends Controller
      *      operationId="deleteClient",
      *      tags={"Clients"},
      *      summary="Delete a specific client",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
