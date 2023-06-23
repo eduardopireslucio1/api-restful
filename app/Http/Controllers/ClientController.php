@@ -179,15 +179,6 @@ class ClientController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(
-     *              type="object",
-     *              @OA\Property(property="id", type="integer"),
-     *              @OA\Property(property="name", type="string"),
-     *              @OA\Property(property="phone", type="string"),
-     *              @OA\Property(property="address", type="string"),
-     *              @OA\Property(property="email", type="string"),
-     *              @OA\Property(property="created_at", type="string")
-     *          )
      *      )
      * )
      */
