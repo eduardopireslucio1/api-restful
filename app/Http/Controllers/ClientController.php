@@ -53,6 +53,29 @@ class ClientController extends Controller
         // Retorna uma collection de Clientes pertencentes ao usuário autenticado
     }
 
+    /**
+     * @OA\Get(
+     *      path="/liberfly/clients/{id}",
+     *      operationId="getClient",
+     *      tags={"Clients"},
+     *      summary="Get information from a specific client",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="array",
+     *              @OA\Items(
+     *                  @OA\Property(property="id", type="integer"),
+     *                  @OA\Property(property="name", type="string"),
+     *                  @OA\Property(property="phone", type="string"),
+     *                  @OA\Property(property="address", type="string"),
+     *                  @OA\Property(property="email", type="string"),
+     *                  @OA\Property(property="created_at", type="string")
+     *              )
+     *          )
+     *      )
+     * )
+     */
     public function show(Client $client)
     {
         $this->authorize('view', $client);
@@ -62,6 +85,36 @@ class ClientController extends Controller
         // Retorna o cliente
     }
 
+    /**
+     * @OA\Post(
+     *      path="/liberfly/clients/",
+     *      operationId="createClient",
+     *      tags={"Clients"},
+     *      summary="Create a new Client",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              @OA\Property(property="name", type="string"),
+     *              @OA\Property(property="email", type="string"),
+     *              @OA\Property(property="phone", type="string"),
+     *              @OA\Property(property="address", type="string")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(property="id", type="integer"),
+     *              @OA\Property(property="name", type="string"),
+     *              @OA\Property(property="phone", type="string"),
+     *              @OA\Property(property="address", type="string"),
+     *              @OA\Property(property="email", type="string"),
+     *              @OA\Property(property="created_at", type="string")
+     *          )
+     *      )
+     * )
+     */
     public function store(ClientStoreRequest $request)
     {
         $input = $request->validated();
@@ -74,6 +127,34 @@ class ClientController extends Controller
         // Retorna o cliente
     }
 
+    /**
+     * @OA\Put(
+     *      path="/liberfly/clients/{id}",
+     *      operationId="updateClient",
+     *      tags={"Clients"},
+     *      summary="Update a specific client",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              @OA\Property(property="phone", type="string"),
+     *              @OA\Property(property="address", type="string")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(property="id", type="integer"),
+     *              @OA\Property(property="name", type="string"),
+     *              @OA\Property(property="phone", type="string"),
+     *              @OA\Property(property="address", type="string"),
+     *              @OA\Property(property="email", type="string"),
+     *              @OA\Property(property="created_at", type="string")
+     *          )
+     *      )
+     * )
+     */
     public function update(Client $client, ClientUpdateRequest $request)
     {
         $this->authorize('update', $client);
@@ -89,6 +170,27 @@ class ClientController extends Controller
         // Retorna o cliente atualizado 
     }
 
+    /**
+     * @OA\Delete(
+     *      path="/liberfly/clients/{id}",
+     *      operationId="deleteClient",
+     *      tags={"Clients"},
+     *      summary="Delete a specific client",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(property="id", type="integer"),
+     *              @OA\Property(property="name", type="string"),
+     *              @OA\Property(property="phone", type="string"),
+     *              @OA\Property(property="address", type="string"),
+     *              @OA\Property(property="email", type="string"),
+     *              @OA\Property(property="created_at", type="string")
+     *          )
+     *      )
+     * )
+     */
     public function destroy(Client $client)
     {
         $this->authorize('destroy', $client);
