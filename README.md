@@ -26,7 +26,7 @@ DB_PASSWORD=password
 
 -Passo 7: Gerar App key (./vendor/bin/sail php artisan key:generate) ou acessar localhost e gerar pela interface
 
--Passo 8: Gerar chave JWT (./vendor/bin/sail php artisan key:generate)
+-Passo 8: Gerar chave JWT (./vendor/bin/sail php artisan jwt:secret)
 
 -Pronto agora está tudo certo para utilizar a API-LiberFly
 -Lembrando que para utilizar os endpoints, terá que adicionar os Headers Acceppt(application/json) e Content-Type(application/json).
